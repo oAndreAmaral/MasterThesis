@@ -1,4 +1,4 @@
-# MasterThesis
+# MasterThesis - Preliminary Study
 ## Deep Neural Networks for Behavioral Modeling of Analog ICs
 
 This repository aims to store all the information about modeling the behavior of analog circuits.
