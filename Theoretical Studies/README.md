@@ -12,3 +12,6 @@ This [Preliminary PowerPoint](https://github.com/oAndreAmaral/MasterThesis/blob/
 
 ### Preliminary study about Machine and Deep Learning
 This [ML, DL, ANN Overview](https://github.com/oAndreAmaral/MasterThesis/blob/46bb616114bb183b62d2902c46a18a9283d568dd/ML%20&%20ANN%20Overview.pdf) contains the basics of the machine learning, deep learning and artificial neural networks theoretical concepts.
+
+
+
