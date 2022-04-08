@@ -6,3 +6,5 @@ This repository aims to store all the information about modeling the behavior of
 All this work is of the authorship of André Carneiro Amaral
 
 [Theoretical Studies Folder](https://github.com/oAndreAmaral/MasterThesis/tree/Preliminary-Work/Theoretical%20Studies) - Find the necessary theoretical background for this work.
+
+[Practical Implementation Folder](https://github.com/oAndreAmaral/MasterThesis/tree/Preliminary-Work/Practical%20Implementation) - Find the code used to compute the models for this work.
