@@ -5,6 +5,6 @@ This repository aims to store all the information about modeling the behavior of
 
 All this work is of the authorship of André Carneiro Amaral
 
-### Dataset used
+### Preliminary Dataset
 
-### LSTM Model
+### Preliminary LSTM Application
