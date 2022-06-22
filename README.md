@@ -7,5 +7,5 @@ All this work is of the authorship of **André Carneiro Amaral**
 
 Check: [Preliminary Work and Study](https://github.com/oAndreAmaral/MasterThesis/tree/Preliminary-Work)
 
-Check; [Implementation Work for Thesis](https://github.com/oAndreAmaral/MasterThesis/tree/Implementation-Work)
+Check: [Implementation Work for Thesis](https://github.com/oAndreAmaral/MasterThesis/tree/Implementation-Work)
 
