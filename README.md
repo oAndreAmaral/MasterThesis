@@ -5,5 +5,7 @@ This repository aims to store all the information about modeling the behavior of
 
 All this work is of the authorship of **André Carneiro Amaral**
 
-A LSTM Model is implemented to modelate the behavior of an amplifier taking in consideration different dimensions of the devices.
+Check: [Preliminary Work and Study](https://github.com/oAndreAmaral/MasterThesis/tree/Preliminary-Work)
+
+Check; [Implementation Work for Thesis](https://github.com/oAndreAmaral/MasterThesis/tree/Implementation-Work)
 
