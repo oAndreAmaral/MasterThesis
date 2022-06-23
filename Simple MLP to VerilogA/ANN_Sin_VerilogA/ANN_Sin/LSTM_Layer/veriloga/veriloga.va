@@ -1,0 +1,68 @@
+// VerilogA for ANN_Sin, LSTM_Layer, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+// Variable names based on the thesis graphic model of the LSTM Layer
+
+module LSTM_Layer(H_prev, C_prev, x, H_out, C_out);
+
+	input H_prev, C_prev, x;
+	voltage H_prev, C_prev, x;
+	output H_out, C_out;
+	voltage H_out, C_out;
+
+	real C_til;
+	real O_t_aux;
+	real O_t;
+	real I_t_aux;
+	real I_t;
+	real F_t_aux;
+	real F_t;
+	real C_t;
+	real output_value;
+
+	// Weights W and U and the Bias b do not change from one time step to another
+	parameter real Wf = ???; // weight matrix associated with hidden state in Forget Gate
+	parameter real Wi = ???; // weight matrix associated with hidden state in Input Gate
+	parameter real Wo = ???; // weight matrix associated with hidden state in Output Gate
+	parameter real Wc = ???; // weight matrix associated with hidden state in new information
+	parameter real Uf = ???; // weight matrix of the input of Forget Gate
+	parameter real Ui = ???; // weight matrix of the input of Input Gate
+	parameter real Uo = ???; // weight matrix of the input of Output Gate
+	parameter real Uc = ???; // weight matrix of the input of new information
+	parameter real bf = ???; // bias of the Forget Gate
+	parameter real bi = ???; // bias of the Input Gate
+	parameter real bo = ???; // bias of the Output Gate
+	parameter real bc = ???; // bias of the new information
+
+	// Hidden and Cell State Initialization
+	parameter real Hidden = ????
+	parameter real Cell = ????
+
+	analog begin
+		
+		C_til = tanh(Wc * V(x) + Uc * V(H_prev) + bc);
+
+		O_t_aux = Wo * V(x) + Uo * V(H_prev) + bo;
+		O_t = 1/(1+exp(-O_t_aux));
+
+		I_t_aux = Wi * V(x) + Ui * V(H_prev) + bi;
+		I_t = 1/(1+exp(-I_t_aux));
+		
+		F_t_aux = Wf * V(x) + Uf * V(H_prev) + bf;
+		F_t = 1/(1+exp(-F_t_aux));
+
+		C_t = F_t * V(C_prev) + I_t * C_til;
+		
+		output_value = O_t * tanh(V(C_out));
+
+	end
+
+	V(C_out) <+ C_t;
+	V(C_prev) <+ C_t
+	V(H_out) <+ output_value;
+	V(H_prev) <+ output_value;
+
+
+endmodule

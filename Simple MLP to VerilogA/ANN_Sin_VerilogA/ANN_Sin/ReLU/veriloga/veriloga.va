@@ -1,0 +1,25 @@
+// VerilogA for ANN_Sin, ReLU, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+// Activation Function ReLU in Verilog-A Code
+// This module builds the activation function ReLU.
+
+module ReLU(neuron_deactivated, neuron_activated);
+
+  input neuron_deactivated;
+  real result;
+  output neuron_activated;
+  electrical neuron_deactivated, neuron_activated;
+  real p_num;
+
+   analog begin
+		 p_num = V(neuron_deactivated);
+ 		 if(p_num >= 0)
+    		 result = p_num;
+  		else
+     		result = 0.0;
+		V(neuron_activated) <+ result;
+ 	end
+endmodule
