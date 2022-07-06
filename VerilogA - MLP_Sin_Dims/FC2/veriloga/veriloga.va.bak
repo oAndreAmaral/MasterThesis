@@ -1,0 +1,65 @@
+// VerilogA for MLP_Sin_Dims, FC2, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module ANN_Middle_Layer(x,y);
+
+  parameter integer x_dim = 1;
+  parameter integer y_dim = 1;
+  parameter real W20[0:2] = {-0.070229,-0.009922,0.099524};
+  parameter real W21[0:2] = {-0.121893,0.197947,0.186127};
+  parameter real W22[0:2] = {0.158457,0.089574,0.111007};
+  parameter real W23[0:2] = {0.056993,0.349764,-0.312951};
+  parameter real W24[0:2] = {-0.208732,-0.138823,-0.274656};
+  parameter real W25[0:2] = {-0.338779,0.334682,0.094461};
+  parameter real W26[0:2] = {-0.283861,0.396738,0.099827};
+  parameter real W27[0:2] = {-0.029804,0.126630,0.022292};
+  parameter real W28[0:2] = {0.084290,0.199150,-0.140507};
+  parameter real b[0:2] = {0.005398,0.374601,0.196092};
+  real a2[0:2];
+
+  input [0:8]x;
+  voltage [0:8]x;
+  output [0:2]y;
+  voltage [0:2]y;
+  genvar i;
+
+  analog begin
+      a2[0] = 0;
+      a2[1] = 0;
+      a2[2] = 0;
+
+      a2[0] = V(x[0]) * W20[0] + a2[0];
+      a2[0] = V(x[1]) * W21[0] + a2[0];
+      a2[0] = V(x[2]) * W22[0] + a2[0];
+      a2[0] = V(x[3]) * W23[0] + a2[0];
+      a2[0] = V(x[4]) * W24[0] + a2[0];
+      a2[0] = V(x[5]) * W25[0] + a2[0];
+      a2[0] = V(x[6]) * W26[0] + a2[0];
+      a2[0] = V(x[7]) * W27[0] + a2[0];
+      a2[0] = V(x[8]) * W28[0] + a2[0];
+      a2[1] = V(x[0]) * W20[1] + a2[1];
+      a2[1] = V(x[1]) * W21[1] + a2[1];
+      a2[1] = V(x[2]) * W22[1] + a2[1];
+      a2[1] = V(x[3]) * W23[1] + a2[1];
+      a2[1] = V(x[4]) * W24[1] + a2[1];
+      a2[1] = V(x[5]) * W25[1] + a2[1];
+      a2[1] = V(x[6]) * W26[1] + a2[1];
+      a2[1] = V(x[7]) * W27[1] + a2[1];
+      a2[1] = V(x[8]) * W28[1] + a2[1];
+      a2[2] = V(x[0]) * W20[2] + a2[2];
+      a2[2] = V(x[1]) * W21[2] + a2[2];
+      a2[2] = V(x[2]) * W22[2] + a2[2];
+      a2[2] = V(x[3]) * W23[2] + a2[2];
+      a2[2] = V(x[4]) * W24[2] + a2[2];
+      a2[2] = V(x[5]) * W25[2] + a2[2];
+      a2[2] = V(x[6]) * W26[2] + a2[2];
+      a2[2] = V(x[7]) * W27[2] + a2[2];
+      a2[2] = V(x[8]) * W28[2] + a2[2];
+
+      for(i = 0; i<= 2; i = i + 1) begin
+          V(y[i]) <+ a2[i] + b[i];
+      end
+  end
+endmodule

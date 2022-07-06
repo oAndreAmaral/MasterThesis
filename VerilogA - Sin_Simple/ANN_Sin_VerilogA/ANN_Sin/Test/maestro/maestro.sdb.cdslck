@@ -1,0 +1,16 @@
+#
+# Edit Lock-Stake file. CAUTION: Please do not change.
+#
+# Information about current Edit Lock Owner.
+#
+LockStakeVersion               1.1
+LoginName                      aamaral
+HostName                       icgtflow
+ProcessIdentifier              66067
+ProcessCreationTime_UTC        1654851052
+ProcessCreationTime_Readable   Fri Jun 10 09:50:52 2022 WEST
+AppIdentifier                  /eda/cadence/2016-17/RHELx86/IC_6.1.7.704/tools/dfII/bin/64bit/virtuoso
+OSType                         lnx86
+ReasonForPlacingEditLock       
+FilePathUsedToEditLock         /home/aamaral/ANN_Sin/Test/maestro/maestro.sdb
+TimeEditLocked                 Sat Jun 11 16:08:49 2022 WEST

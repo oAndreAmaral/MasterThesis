@@ -1,0 +1,33 @@
+// VerilogA for MLP_Sin_Dims, FC1, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module ANN_Middle_Layer(x,y);
+
+  parameter integer x_dim = 1;
+  parameter integer y_dim = 1;
+  parameter real W20[0:2] = {0.273522,0.124465,-0.091999};
+  parameter real b[0:2] = {-0.410694,0.616439,0.226126};
+  real a2[0:2];
+
+  input x;
+  voltage x;
+  output [0:2]y;
+  voltage [0:2]y;
+  genvar i;
+
+  analog begin
+      a2[0] = 0;
+      a2[1] = 0;
+      a2[2] = 0;
+
+      a2[0] = V(x) * W20[0] + a2[0];
+      a2[1] = V(x) * W20[1] + a2[1];
+      a2[2] = V(x) * W20[2] + a2[2];
+
+      for(i = 0; i<= 2; i = i + 1) begin
+          V(y[i]) <+ a2[i] + b[i];
+      end
+  end
+endmodule

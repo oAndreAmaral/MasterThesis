@@ -1,0 +1,28 @@
+// VerilogA for Thesis_Model, ELU, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+// Activation Function ELU in Verilog-A code.
+// Inputs: neurons deactivated
+// Outputs: neurons activated through this non-linearity
+
+module ELU(n_deact, n_act);
+
+  input n_deact;
+  output n_act;
+  electrical n_deact, n_act;
+  real result;
+  real p_num;
+  parameter real alpha = 1;
+ 
+  analog begin
+      p_num = V(n_deact);
+      if(p_num > 0)
+          result = p_num;
+      else
+          result = alpha * (exp(p_num) - 1);
+      V(n_act) <+ result;
+  end
+
+endmodule

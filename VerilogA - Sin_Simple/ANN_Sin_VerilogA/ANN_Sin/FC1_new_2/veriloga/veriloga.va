@@ -1,0 +1,32 @@
+ // VerilogA for ANN_Sin, FC1, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+// This module builds the forward path of the first fully connected layer.
+
+module ANN_fc_layer1(x,y);
+
+  parameter integer x_dim = 1;
+  parameter integer y_dim = 1;
+
+  parameter real w1[0:2] = {-0.6923, -0.1293, -0.4078};
+  parameter real b1[0:2] = {0.1651, -0.5481, -0.8512};
+  real a[0:2];
+
+  input x;
+  voltage x;
+  output [0:2]y;
+  voltage [0:2]y;
+  genvar i;
+
+  analog begin
+  	for (i = 0; i <= 2; i = i + 1) begin
+	 a[i] = V(x) * w1[i] + b1[i];
+     V(y[i]) <+ a[i];   
+	end
+    
+  end
+
+endmodule
+

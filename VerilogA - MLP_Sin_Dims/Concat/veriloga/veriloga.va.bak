@@ -1,0 +1,29 @@
+// VerilogA for MLP_Thesis, Concat, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module Concat(z1, z1_dims);
+
+	input [0:2]z1;
+	voltage [0:2]z1;
+	output [0:8]z1_dims;
+	voltage [0:8]z1_dims;
+
+	parameter real Wd0[0:5] = {0.23, 0.34, 0.004, 0.03, 0.333, 1.3};
+	real b[0:8];	
+	genvar i;
+	
+	analog begin
+	  for(i = 0; i<= 2; i = i + 1) begin
+         b[i] = V(z1[i]);
+		 V(z1_dims[i]) <+ b[i];
+      end
+
+	  for(i = 0; i<=5; i = i + 1) begin
+         b[3+i] = Wd0[i];
+         V(z1_dims[3+i]) <+ b[i];
+      end
+	end
+
+endmodule

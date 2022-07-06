@@ -1,0 +1,9 @@
+// VerilogA for MLP_Thesis, FC2, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module FC2;
+
+
+endmodule
