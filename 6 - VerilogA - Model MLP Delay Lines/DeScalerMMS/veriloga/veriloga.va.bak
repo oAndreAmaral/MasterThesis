@@ -1,0 +1,9 @@
+// VerilogA for MLP_Thesis_Final, DeScalerMMS, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module DeScalerMMS;
+
+
+endmodule

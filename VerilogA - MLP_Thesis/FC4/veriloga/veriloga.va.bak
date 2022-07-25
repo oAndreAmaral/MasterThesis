@@ -1,9 +1,0 @@
-// VerilogA for MLP_Thesis, FC4, veriloga
-
-`include "constants.vams"
-`include "disciplines.vams"
-
-module FC4;
-
-
-endmodule

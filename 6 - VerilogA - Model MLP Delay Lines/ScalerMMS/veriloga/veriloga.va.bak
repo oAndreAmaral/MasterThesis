@@ -1,0 +1,27 @@
+// VerilogA for MLP_Thesis_Short, ScalerMMS, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module ScalerMMS(in_wave, out_wave);
+
+  input in_wave;
+  voltage in_wave;
+  output out_wave;
+  voltage out_wave;
+
+  real parameter aux_for_min_set = 0;
+  real parameter aux_for_max_set = 0;
+  real x_std;
+  real x_scaled;
+
+  analog begin
+    
+	  x_std = (V(in_wave)-aux_for_min_set) / (aux_for_max_set - aux_for_min_set);
+    
+	  x_scaled = x_std * (1 - 0);
+     
+ 	  V(out_wave) <+ x_scaled;
+
+  end
+endmodule

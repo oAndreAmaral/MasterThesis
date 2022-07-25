@@ -1,0 +1,33 @@
+// VerilogA for MLP_Thesis_Short, Delay, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module DelayLines(in_wave, out_wave);
+
+  input in_wave;
+  voltage in_wave;
+  output [0:2]out_wave;
+  voltage [0:2]out_wave;
+  real delay_wave;
+  real a;
+  real time_delay1;
+  real time_delay2;
+  real b[0:1];
+  parameter real fixed_delay1= 5.00000e-05;
+  parameter real fixed_delay2= 6.35141e-05;
+
+  analog begin
+      time_delay1 = fixed_delay1;
+	  time_delay2 = fixed_delay2;
+      a = V(in_wave);
+
+      b[0] = absdelay(a, time_delay1);
+      b[1] = absdelay(a, time_delay2);
+
+      V(out_wave[0]) <+ a;
+      V(out_wave[1]) <+ b[0];
+      V(out_wave[2]) <+ b[1];
+
+  end
+endmodule

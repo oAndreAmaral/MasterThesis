@@ -1,0 +1,9 @@
+// VerilogA for MLP_Thesis_Final, Sigmoid, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module Sigmoid;
+
+
+endmodule

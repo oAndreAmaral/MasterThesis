@@ -1,0 +1,28 @@
+// VerilogA for MLP_Thesis_Final, DeScalerMMS, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module DeScalerMMS(in_wave, out_wave);
+
+  input [0:1]in_wave;
+  voltage [0:1]in_wave;
+  output [0:1]out_wave;
+  voltage [0:1]out_wave;
+
+  real parameter aux_for_min = 0.3193;
+  real parameter aux_for_max = 0.006527;
+  real X[0:1];
+  genvar i;
+
+  analog begin
+	  for(i = 0; i<= 1; i = i + 1) begin
+      	X[i] = ((V(in_wave[i]) * (aux_for_max - aux_for_min))/((1 - 0) + 0)) + aux_for_min;
+
+	  end
+
+	  for(i = 0; i<= 1; i = i + 1) begin
+	  	V(out_wave[i]) <+ X[i];
+	  end
+  end
+endmodule

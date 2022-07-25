@@ -1,0 +1,36 @@
+// VerilogA for MLP_Thesis_Short, Concat_in, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module Concat_Inputs(input voltage [0:2]in_neg, input voltage [0:2]in_pos, output voltage [0:5]x);
+
+	real b[0:5];	
+	genvar i;
+	integer c;
+	
+	analog begin
+		c = 0;
+		for(i = 0; i<= 2; i = i + 1) begin
+        	 b[i+c] = V(in_pos[i]);
+			 b[i + c + 1] = V(in_neg[i]);
+			 c = i+1;
+      	end
+
+		for(i = 0; i<= 5; i = i + 1) begin
+		 V(x[i]) <+ b[i];
+		end
+
+	  /*for(i = 0; i<= 2; i = i + 1) begin
+         b[i+c] = V(in_pos[i]);
+		 b[i + c + 1] = V(in_neg[i]);
+		 V(x[i]) <+ b[i];
+		 c = c+1;
+      end
+
+	  for(i = 0; i<= 2; i = i + 1) begin
+         b[3+i] = V(in_neg[i]);
+         V(x[3+i]) <+ b[3+i];
+      end*/
+	end
+endmodule
